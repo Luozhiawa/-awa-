@@ -1,0 +1,31 @@
+// P1981
+// For Luozhi
+#include <bits/stdc++.h>
+#define ll long long
+using namespace std;
+ll a[114514],cut=1,num;
+char c[114514];
+int main()
+{
+	//freopen(".in","r",stdin);
+	//freopen(".out","w",stdout);
+    cin>>a[cut];
+    a[cut]%=10000;
+    while(cin>>c[cut]){
+    	cin>>a[++cut];
+    	a[cut]%=10000;
+	}
+	for(int i=cut;i>=1;i--){
+		if(c[i]=='*'){
+			a[i]*=a[i+1];
+			a[i]%=10000;
+			a[i+1]=0;
+		}
+	}
+	for(int i=i;i<=cut;i++){
+		num+=a[i];
+		num%=10000;
+	}
+	cout<<num;
+	return 0;
+}
