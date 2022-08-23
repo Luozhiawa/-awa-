@@ -1,0 +1,23 @@
+// P1226 
+// For Luozhi
+#include <bits/stdc++.h>
+#define ll long long
+using namespace std;
+int qmi(int a,int k,int p){
+	int res=1;
+	while(k){
+		if(k&1)res=(ll)res*a%p;
+		k>>=1;
+		a=(ll)a*a%p;
+	}
+	return res;
+} 
+int main()
+{
+	//freopen("P1226.in","r",stdin);
+	//freopen("P1226.out","w",stdout);
+    ll a,k,p;
+    cin>>a>>k>>p;
+    cout<<a<<"^"<<k<<" mod "<<p<<"="<<qmi(a,k,p);
+	return 0;
+}
