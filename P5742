@@ -1,0 +1,29 @@
+// P5742
+// For Luozhi
+#include <bits/stdc++.h>
+#define ll long long
+using namespace std;
+struct note{
+	ll xh;
+	ll cj;
+	ll tz;
+}a[114514];
+int main()
+{
+	//freopen(".in","r",stdin);
+	//freopen(".out","w",stdout);
+    int n;
+    cin>>n;
+    for(int i=1;i<=n;i++){
+    	cin>>a[i].xh>>a[i].cj>>a[i].tz;
+	}
+	for(int i=1;i<=n;i++){
+		if(a[i].tz+a[i].cj>140&&a[i].cj*0.7+a[i].tz*0.3>=80){
+			cout<<"Excellent"<<endl;
+		}
+		else{
+			cout<<"Not excellent"<<endl;
+		}
+	}
+	return 0;
+}
