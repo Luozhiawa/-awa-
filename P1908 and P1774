@@ -1,0 +1,55 @@
+// P1908 & P1774
+//For Luozhi
+#include <bits/stdc++.h>
+#define re register
+#define ll long long
+using namespace std;
+ll a[114514191],r[114514191],ans=0;
+void sort(int s,int t){
+	if(s==t) return;
+	else{
+		int mid=(s+t)/2;
+		sort(s,mid);
+		sort(mid+1,t);
+		int i=s,j=mid+1,k=s;
+		while(i<=mid&&j<=t){
+			if(a[i]<=a[j]){
+				r[k]=a[i];
+				k++; i++;
+			}
+			else{
+				r[k]=a[j];
+				k++;j++;
+				ans = ans + mid - i + 1;
+			}
+		}
+		while (i <= mid)
+        {
+            r[k] = a[i];
+            k ++;
+            i ++;
+        }
+        while (j <= t)
+        {
+            r[k] = a[j];
+            k ++;
+            j ++;
+        }
+        for (int i = s;i <= t;i ++)
+            a[i] = r[i];
+   	 	}	
+	}
+int main()
+{
+	//freopen(".in","r",stdin);
+	//freopen(".out","w",stdout);
+    int n;
+    cin>>n;
+    for(int i=1;i<=n;i++){
+		cin>>a[i];
+	}
+	sort(1,n);
+	cout<<ans<<endl;
+	cout<<endl;
+	return 0;
+}
