@@ -1,0 +1,35 @@
+// P1706
+// For Luozhi
+#include <bits/stdc++.h>
+#define re register
+#define ll long long
+using namespace std;
+int path[101];
+bool point[101];
+int n;
+void dfs(int u){
+	if(u==n) {
+		cout<<"    ";
+		for(int i=0;i<n;i++) printf("%d    ",path[i]);
+		puts("");
+		return;
+	}
+	else{
+		for(int i=1;i<=n;i++){
+			if(!point[i]){
+				path[u]=i;
+				point[i]=1;
+				dfs(u+1);
+				point[i]=0;
+			}
+		}
+	}
+} 
+int main()
+{
+	//freopen(".in","r",stdin);
+	//freopen(".out","w",stdout);
+    cin>>n;
+    dfs(0);
+	return 0;
+}
